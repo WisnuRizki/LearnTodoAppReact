@@ -1,25 +1,49 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import Daftar from './Daftar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      inputField : '',
+      listTodo: []
+    }
+  }
+
+  onInputChange = (event) => {
+    this.setState({inputField:event.target.value})
+  }
+
+  onSumbitList = () => {
+    const daftar = [...this.state.listTodo];
+    const newList = this.state.inputField;
+    daftar.push(newList);
+    this.setState({
+      listTodo:daftar
+    })
+  }
+
+  onDel = (event) => {
+    var array = [...this.state.listTodo]; // make a separate copy of the array
+    var index = array.indexOf(event)
+    if (index !== -1) {
+      array.splice(index, 1);
+      this.setState({listTodo: array});
+    }
+  }
+
+
+  render(){
+    return(
+      <div>
+        <h1>Todo App</h1>
+        <input type='text' onChange={this.onInputChange}/>
+        <button type='submit' onClick={this.onSumbitList}>Submit</button>
+        <Daftar listTodo={this.state.listTodo} onDel={this.onDel}/>
+      </div>
+    );
+  }
 }
 
 export default App;
