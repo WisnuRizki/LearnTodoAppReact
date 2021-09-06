@@ -1,14 +1,29 @@
 import React from 'react';
+import './Daftar.css';
 
 function Daftar({listTodo,onDel}){
-    return <ul>
-        {listTodo.map((item,i) => {
-            return <li key={item}>
-                {item}
-                <a onClick={onDel.bind(this,item)}>[k]</a>
-            </li>
-        })}
-    </ul>;
+    return(
+        <div>
+            <div >
+                <ul>
+
+                    {listTodo.map(list => {
+                        return <div  className="daftar">
+                            <li>{list}</li>
+                            <button className="buttonDel" onClick={onDel.bind(this,list)}>X</button>
+                        </div>
+                    })}
+                   
+                </ul>
+                
+            </div>
+            
+        </div>
+    );
+    
+    
+    
+    
 }
 
 export default Daftar;

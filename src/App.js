@@ -36,9 +36,9 @@ class App extends React.Component{
 
   render(){
     return(
-      <div>
-        <h1>Todo App</h1>
-        <input type='text' onChange={this.onInputChange}/>
+      <div className="container">
+        <h1><em>Todo App</em></h1>
+        <input type='text' onChange={this.onInputChange} placeholder="Type Your List"/>
         <button type='submit' onClick={this.onSumbitList}>Submit</button>
         <Daftar listTodo={this.state.listTodo} onDel={this.onDel}/>
       </div>

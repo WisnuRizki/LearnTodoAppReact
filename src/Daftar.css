@@ -1,0 +1,25 @@
+.daftar{
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    margin-right: 2em;
+}
+
+li{
+    list-style-type: none;
+    border: 1px solid black;
+    width: 30em;
+    height: 3em;
+    font-weight: bold;
+    padding-top: 0.7em;
+    background-color:#C4C4C4;
+
+}
+
+
+.buttonDel{
+    background-color:#C4C4C4;
+    font-size: 1em;
+    width: 3em;
+    height: 3.9em;
+}
